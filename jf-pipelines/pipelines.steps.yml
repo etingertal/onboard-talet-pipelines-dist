@@ -7,7 +7,7 @@ pipelines:
           #inherits from bash
           releaseBundleName: pipeline-release-bundle
           releaseBundleVersion: 1.0.${run_number}
-          storeAtSourceArtifactory: true
+          storeAtSourceArtifactory: "true"
           dryRun: true   # default true
           sign: false   # default false
 
