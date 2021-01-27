@@ -32,7 +32,7 @@ pipelines:
             - name: rb_pipeline  # required
               trigger: false
           outputResources:
-            - name: rb_pipeline  # required
+            - name: rb_pipeline_signed  # required
 
         execution:
           onStart:
