@@ -45,3 +45,24 @@ pipelines:
             - echo "uh oh, something went wrong"
           onComplete: #always
             - echo "Cleaning up some stuff"
+      - name: rb_distribute
+        type: DistributeReleaseBundle
+        configuration:
+          dryRun: false                # optional
+          inputResources:
+            - name: rb_pipeline_signed      # one releaseBundle is required
+              trigger: false
+            - name: rb_distributionRule   # one distributionRule is required
+              trigger: false    # default true
+          inputSteps:
+            - name: rb_sign
+
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete: #always
+            - echo "Cleaning up some stuff"

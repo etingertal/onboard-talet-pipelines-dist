@@ -22,3 +22,13 @@ resources:
       name: pipeline-release-bundle-signed
       version: 1.0.${run_number}
       isSigned: true
+  - name: rb_distributionRule
+    type: DistributionRule
+    configuration:
+      sourceDistribution: ob_dist
+      serviceName: "*"
+      siteName: "*"
+      cityName: "*"
+      countryCodes:
+        - IN
+        - US
