@@ -30,3 +30,21 @@ pipelines:
             - echo "uh oh, something went wrong"
           onComplete: #always
             - echo "Cleaning up some stuff"
+      - name: rb_sign
+        type: SignReleaseBundle
+        configuration:
+          inputResources:
+            - name: rb_pipeline  # required
+              trigger: false
+          outputResources:
+            - name: rb_pipeline  # required
+
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete: #always
+            - echo "Cleaning up some stuff"
