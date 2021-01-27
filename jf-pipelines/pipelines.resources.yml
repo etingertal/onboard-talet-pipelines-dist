@@ -16,9 +16,9 @@ resources:
       version: 1.0.${run_number}
       isSigned: false
   - name: rb_pipeline_signed
-      type: ReleaseBundle
-      configuration:
-        sourceDistribution: ob_dist
-        name: pipeline-release-bundle-signed
-        version: 1.0.${run_number}
-        isSigned: true
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: ob_dist
+      name: pipeline-release-bundle-signed
+      version: 1.0.${run_number}
+      isSigned: true
