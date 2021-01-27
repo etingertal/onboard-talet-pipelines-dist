@@ -8,3 +8,10 @@ resources:
         - name: maven
           input: onboard-repo-local/(.*)
           output: edge-repo/$1
+  - name: rb_pipeline
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: ob_dist
+      name: pipeline-release-bundle
+      version: 1.0.${run_number}
+      isSigned: false
