@@ -1,5 +1,5 @@
 pipelines:
-  - name: onboard_talet_maven_pipeline
+  - name: onboard_talet_pipelines_dist
     configuration:
       environmentVariables:
         readOnly:
