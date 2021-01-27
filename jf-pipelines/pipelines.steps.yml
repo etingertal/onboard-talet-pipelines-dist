@@ -33,6 +33,8 @@ pipelines:
               trigger: false
           outputResources:
             - name: rb_pipeline_signed  # required
+          inputSteps:
+            - name: rb_create
 
         execution:
           onStart:
