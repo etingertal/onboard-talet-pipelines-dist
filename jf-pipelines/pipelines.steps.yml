@@ -1,0 +1,32 @@
+pipelines:
+  - name: onboard_talet_maven_pipeline
+    configuration:
+      environmentVariables:
+        readOnly:
+          mvnLocalRepo: onboard-repo-local
+          artifactoryIp: 35.207.143.222:8082
+          dockerVirtualRepo: onboard-docker-repo-virt
+    steps:
+      - name: rb_create
+        type: CreateReleaseBundle
+        configuration:
+          #inherits from bash
+          releaseBundleName: pipeline-release-bundle
+          releaseBundleVersion: 1.0.${run_number}
+          dryRun: true   # default true
+          sign: false   # default false
+
+          inputResources:
+            - name: rb_aql        # one Aql
+          outputResources:
+            - name: rb_pipeline
+
+        execution:
+          onStart:
+            - echo "Creating release bundle..."
+          onSuccess:
+            - echo "Success!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete: #always
+            - echo "Cleaning up some stuff"
